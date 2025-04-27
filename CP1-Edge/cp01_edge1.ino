@@ -1,4 +1,4 @@
-#include <LiquidCrystal.h>
+#include <LiquidCrystal.h> //incluindo a biblioteca LiquidCrystal
 
 LiquidCrystal lcd(12, 11, 10, 5, 4, 3, 2); //definindo a tela
 int sensor = A0; //definindo o pino do sensor
@@ -7,7 +7,7 @@ int ledAmarelo = 9; //defininfo o pino do led amarelo
 int ledVermelho = 8; //defininfo o pino do led vermelho
 int buzzer = 7; //defininfo o pino do buzzer
 
-int minOk = 20; //defininfo a porcentagem minima para ok
+int minOk = 30; //defininfo a porcentagem minima para ok
 int maxOk = 50; //defininfo a porcentagem maxima para ok
 int intervaloAlertaMin = minOk - 10; //definindo o intervalo minimo para estar em alerta
 int intervaloAlertaMax = maxOk + 10; //definindo o intervalo maximo para estar em alerta
@@ -80,7 +80,7 @@ void exibirIluminacao () //criando a funcao para exbir a iluminacao
   delay(100); //espera 1 milisegundo
   
   lcd.setCursor(4,0); //reposicionando cursor para (4, 0)
-  lcd.print("-"); //escrevendo "-" na tela
+  lcd.print("-"); //escrevendo "-" na telaa
   lcd.setCursor(11, 0); //reposicionando cursor para (11, 0)
   lcd.print("-"); //escrevendo "-" na tela
   delay(100); //espera 1 milisegundo
@@ -105,7 +105,7 @@ void exibirIluminacao () //criando a funcao para exbir a iluminacao
   
   
   lcd.setCursor(0 ,1); //reposicionando cursor para (0, 1)
-  lcd.print("Luz: "); //escrevendo "Iluminacao: " na tela
+  lcd.print("Luz: "); //escrevendo "Luz: " na tela
 } //fim da funcao
 
 void setup() //funcao setup
@@ -114,7 +114,7 @@ void setup() //funcao setup
   pinMode(ledVerde, OUTPUT); //definindo o pin mode do ledVerde como output
   pinMode(ledAmarelo, OUTPUT); //definindo o pin mode do ledAmarelo como output
   pinMode(ledVermelho, OUTPUT); //definindo o pin mode do ledVermelho como output
-  pinMode(buzzer, OUTPUT); //definindo o pin mode do buzzer
+  pinMode(buzzer, OUTPUT); //definindo o pin mode do buzzer como output
   
   exibirLogo(); //chamando a funcao exibirLogo
   exibirIluminacao(); //chamando a funcao exibirIluminacao
@@ -163,7 +163,7 @@ void loop() //funcao loop
   lcd.setCursor(5, 1); //reposicionando cursor para (5, 1)
   lcd.print(leituraPorcentagem); //escrevendo o valor da variavel leituraPorcentagem na tela
   lcd.print("%"); //escrevendo "%" na tela
-  delay(1000); //espera 1 segundos
+  delay(1000); //espera 1 segundo
 } //fim da funcao
 
 
