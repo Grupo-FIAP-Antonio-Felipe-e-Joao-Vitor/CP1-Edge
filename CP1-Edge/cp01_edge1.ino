@@ -1,5 +1,4 @@
-#include <LiquidCrystal.h> //incluindo a biblioteca LiquidCrystal
-
+#include <LiquidCrystal.h>
 LiquidCrystal lcd(12, 11, 10, 5, 4, 3, 2); //definindo a tela
 int sensor = A0; //definindo o pino do sensor
 int ledVerde = 13; //definindo o pino do led verde
@@ -88,7 +87,7 @@ void exibirIluminacao () //criando a funcao para exbir a iluminacao
   lcd.setCursor(5,0); //reposicionando cursor para (5, 0)
   lcd.print("-"); //escrevendo "-" na tela
   lcd.setCursor(10, 0); //reposicionando cursor para (10, 0)
-  lcd.print("-"); //escrevendo "-" na tela
+  lcd.print(w"-"); //escrevendo "-" na tela
   delay(100); //espera 1 milisegundo
   
   lcd.setCursor(6,0); //reposicionando cursor para (6, 0)
@@ -123,7 +122,7 @@ void setup() //funcao setup
 void loop() //funcao loop
 { //inicio da funcao
   float leitura = analogRead(sensor); //criando uma variavel do tipo float que recebe os valor do sensor
-  int leituraPorcentagem = map(leitura, 344, 1017, 100, 0); //remapeando os valores da variavel leitura para um novo intervalo entre 0 e 100
+  int leituraPorcentagem = map(leitura, 0, 1000, 100, 0); //remapeando os valores da variavel leitura para um novo intervalo entre 0 e 100
 
   if (leituraPorcentagem >= minOk & leituraPorcentagem <= maxOk)  { //se leituraPorcentagem estiver dentro do intervalo ok
     digitalWrite(ledVerde, HIGH); //acende led verde
@@ -160,10 +159,14 @@ void loop() //funcao loop
   
   
   
+  
+  lcd.clear(); //limpando tela
+  lcd.setCursor(0, 0); //reposicionando cursor para (0, 0)
+  lcd.print("----------------"); //escrevendo "----------------" na tela
+  lcd.setCursor(0, 1); //reposicionando cursor para (0, 1)
+  lcd.print("Luz :"); //escrevendo "Luz: " na tela
   lcd.setCursor(5, 1); //reposicionando cursor para (5, 1)
   lcd.print(leituraPorcentagem); //escrevendo o valor da variavel leituraPorcentagem na tela
-  lcd.print("%"); //escrevendo "%" na tela
+  lcd.print('%'); //escrevendo "%" na tela
   delay(1000); //espera 1 segundo
 } //fim da funcao
-
-
